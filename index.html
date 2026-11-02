@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f4">
+    <meta name="description" content="Privately check password strength and generate stronger alternatives in your browser.">
+    <title>Password Strength Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Cipher home">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span>cipher<span class="brand-dot">.</span></span>
+        </a>
+        <span class="privacy-label"><span class="privacy-dot" aria-hidden="true"></span> PRIVATE BY DESIGN</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <span class="eyebrow">YOUR FIRST LINE OF DEFENSE</span>
+        <h1 id="page-title">Make every password<br>count<span class="heading-period">.</span></h1>
+        <p>Check how strong your password is and discover ways to make it better. Nothing leaves your browser.</p>
+      </section>
+
+      <section class="analyzer-card" aria-label="Password strength analyzer">
+        <div class="card-heading">
+          <div>
+            <h2>Strength checker</h2>
+            <p>Enter a password to see how it holds up.</p>
+          </div>
+          <span class="lock-icon" aria-hidden="true">⌑</span>
+        </div>
+
+        <label class="field-label" for="password">YOUR PASSWORD</label>
+        <div class="password-field">
+          <input id="password" name="password" type="password" autocomplete="new-password" autocapitalize="off" spellcheck="false" placeholder="Type a password to get started" aria-describedby="privacy-note">
+          <button class="visibility-button" id="toggle-visibility" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+        </div>
+        <p class="privacy-note" id="privacy-note"><span aria-hidden="true">◉</span> Your password stays on this device. We never save or send it.</p>
+
+        <div class="strength-row" aria-live="polite">
+          <span class="strength-caption">STRENGTH</span>
+          <span class="strength-rating" id="strength-rating">Not checked</span>
+        </div>
+        <div class="strength-track" id="strength-track" role="meter" aria-label="Password strength" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0">
+          <span class="strength-fill" id="strength-fill"></span>
+        </div>
+
+        <div class="checks-heading">
+          <h3>Security checklist</h3>
+          <span id="check-count">0 of 5</span>
+        </div>
+        <ul class="checklist" id="checklist">
+          <li data-check="length"><span class="check-icon" aria-hidden="true">✓</span><span>At least 12 characters</span></li>
+          <li data-check="long"><span class="check-icon" aria-hidden="true">✓</span><span>16+ characters for extra protection</span></li>
+          <li data-check="variety"><span class="check-icon" aria-hidden="true">✓</span><span>Mix of uppercase, lowercase, numbers &amp; symbols</span></li>
+          <li data-check="unique"><span class="check-icon" aria-hidden="true">✓</span><span>Varied characters, without excessive repetition</span></li>
+          <li data-check="uncommon"><span class="check-icon" aria-hidden="true">✓</span><span>Avoids common passwords and patterns</span></li>
+        </ul>
+
+        <div class="suggestion-panel">
+          <div class="suggestion-copy">
+            <span class="suggestion-icon" aria-hidden="true">✳</span>
+            <div>
+              <h3>Need a stronger one?</h3>
+              <p>Generate a random, high-strength alternative.</p>
+            </div>
+          </div>
+          <button class="generate-button" id="generate-password" type="button"><span aria-hidden="true">↻</span> Generate</button>
+        </div>
+        <div class="generated-result" id="generated-result" aria-live="polite" hidden>
+          <code id="generated-password"></code>
+          <button class="copy-button" id="copy-password" type="button">Copy</button>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p><span aria-hidden="true">✳</span> A unique password for every account is your best defense.</p>
+        <span>BUILT FOR YOUR PRIVACY</span>
+      </footer>
+    </main>
+  </body>
+</html>
